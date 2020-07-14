@@ -1,0 +1,11 @@
+version : '3'
+services:
+  django:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: gunicorn deokuzzal.wsgi --bind=0:8000
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "8000:8000"
